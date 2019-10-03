@@ -1,0 +1,6 @@
+ {r}←CreateTimer ref
+⍝ Checks whether acre's log has changed and if so updated the GUI
+ r←⍬
+ ref.Timer←⎕NEW'Timer'(⊂('Interval' 1000))
+ ref.Timer.onTimer←'OnTimer'ref
+⍝Done

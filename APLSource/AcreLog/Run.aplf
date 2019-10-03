@@ -1,0 +1,11 @@
+ {r}←Run args;html;ref;log
+⍝ Main function. Creates the GUI, populates it and starts a Timer watching out for changes once in a second.
+ r←⍬
+ CheckForProperVersionOfDyalog 2⊃'#'⎕WG'APLVersion'
+ log←⎕SE.acre._code.MP.log
+ html←ConvertAcreLogToHTML↑log
+ ref←CreateGUI html
+ ref.onClose←'OnClose'
+ ref.∆Log←log
+ CreateTimer ref
+⍝Done

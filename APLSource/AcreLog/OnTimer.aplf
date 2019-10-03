@@ -1,0 +1,11 @@
+ OnTimer←{
+     ref←⍺
+     obj←⎕IO⊃,⍵
+     obj.Interval←0
+     ref.∆Closed:⎕NQ obj'Close'
+     ref.∆Log≡⎕SE.acre._code.MP.log:⍬⊣obj.Interval←1000
+     html←ConvertAcreLogToHTML↑⎕SE.acre._code.MP.log
+     ref.HTML←html
+     obj.Interval←1000
+     ⍬
+ }

@@ -1,0 +1,12 @@
+ ref←CreateGUI html
+ :If 0=⎕NC'∆Posn'
+     ref←#.⎕NEW⊂'HTMLRenderer'
+ :Else
+     ref←#.⎕NEW'HTMLRenderer'(('Posn'∆Posn)('Size'∆Size))
+ :EndIf
+ ref.∆Closed←0
+ ref.ref←ref
+ ⎕SE.acre.RefToLogGUI←ref
+ ((CR=html)/html)←NL
+ ref.HTML←html
+ ⍝Done

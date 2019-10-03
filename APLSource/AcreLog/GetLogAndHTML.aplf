@@ -1,0 +1,13 @@
+ r←GetLogAndHTML dummy
+ r←''
+ r,←⊂'<html>'
+ r,←⊂'<head>'
+ r,←⊂'<title>Acre log</title>'
+ r,←⊂'</head>'
+ r,←⊂'<body>'
+ r,←⊂''
+ r,←⊂'<p>Test Test Test</p>'
+ r,←⊂''
+ r,←⊂'</body>'
+ r,←⊂'</html>'
+⍝Done

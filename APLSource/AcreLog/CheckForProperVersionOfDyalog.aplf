@@ -1,0 +1,4 @@
+ CheckForProperVersionOfDyalog←{
+     17>{⊃(//)⎕VFI ⍵/⍨2>+\⍵='.'}⍵:'Needs at least version 17.0 of Dyalog'⎕SIGNAL 11
+     1:shy←⍬
+ }
