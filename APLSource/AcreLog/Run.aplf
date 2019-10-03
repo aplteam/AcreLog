@@ -2,10 +2,14 @@
 ⍝ Main function. Creates the GUI, populates it and starts a Timer watching out for changes once in a second.
  r←⍬
  CheckForProperVersionOfDyalog 2⊃'#'⎕WG'APLVersion'
- log←⎕SE.acre._code.MP.log
- html←ConvertAcreLogToHTML↑log
- ref←CreateGUI html
- ref.onClose←'OnClose'
- ref.∆Log←log
- CreateTimer ref
+ :If 0=⎕SE.⎕NC'acre'
+     r←'There is no acre in ⎕SE?!'
+ :Else
+     log←⎕SE.acre._code.MP.log
+     html←ConvertAcreLogToHTML↑log
+     ref←CreateGUI html
+     ref.onClose←'OnClose'
+     ref.∆Log←log
+     CreateTimer ref
+ :EndIf
 ⍝Done

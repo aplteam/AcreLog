@@ -17,8 +17,10 @@
 
     ∇ r←Run(Cmd Args);bool;calledFrom
       :Access Shared Public
-      :If 0=≢r←CheckForProperVersionOfDyalog     
-      :AndIf 0=⎕NC'AcreLog'
+      :If 0<≢r←CheckForProperVersionOfDyalog 2⊃# ⎕WG'APLVersion'
+          :Return
+      :EndIf
+      :If 0=⎕SE.⎕NC'AcreLog'
           'AcreLog'⎕SE.⎕NS''
           :If 0<≢r←LoadAcreLog ##.SourceFile
               ⎕SE.⎕EX'AcreLog'
@@ -58,10 +60,10 @@
           r←failed/'Cannot find ',ws,' in ',path
       :EndTrap
     ∇
-    
-    CheckForProperVersionOfDyalog←{
-     17≤{⊃(//)⎕VFI ⍵/⍨2>+\⍵='.'}⍵:''
-     'Needs at least version 17.0 of Dyalog'
- }
+
+      CheckForProperVersionOfDyalog←{
+          17≤{⊃(//)⎕VFI ⍵/⍨2>+\⍵='.'}⍵:''
+          'This user command needs at least version 17.0 of Dyalog'
+      }
 
 :EndClass ⍝ AcreLog
