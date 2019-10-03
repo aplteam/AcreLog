@@ -5,7 +5,7 @@
  html,←⊂'<html>'
  html,←⊂'<head>'
  html,←GetCSS
- html,←⊂'<title>Acre''s log in ',({'CLEAR WS'≡⍵:'' ⋄ ⍵}⎕WSID),' (',(⍕##.OS.GetPID),')</title>'
+ html,←⊂'<title>Acre''s log',({'CLEAR WS'≡⍵:'' ⋄ ' in ',⍵}⎕WSID),' (',(⍕##.OS.GetPID),')</title>'
  html,←⊂'</head>'
  html,←⊂'<body>'
  html,←⊂'<table>'

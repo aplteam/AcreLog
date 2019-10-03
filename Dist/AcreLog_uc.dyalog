@@ -17,13 +17,15 @@
 
     ∇ r←Run(Cmd Args);bool;calledFrom
       :Access Shared Public
-      ⍝ We now create a namespace ⎕SE.AcreLog but keep it local to this function!
-     
-      :If 0=⎕NC 'AcreLog'
-          'AcreLog'⎕SE.⎕NS''     
-          LoadAcreLog ##.SourceFile
+      :If 0=≢r←CheckForProperVersionOfDyalog     
+      :AndIf 0=⎕NC'AcreLog'
+          'AcreLog'⎕SE.⎕NS''
+          :If 0<≢r←LoadAcreLog ##.SourceFile
+              ⎕SE.⎕EX'AcreLog'
+              :Return
+          :EndIf
       :EndIf
-      r←⎕se.AcreLog.AcreLog.Run Args
+      r←⎕SE.AcreLog.AcreLog.Run Args
     ∇
 
     ∇ r←l Help Cmd
@@ -36,11 +38,11 @@
           r,←⊂'Depending on your work flow you might find this more convinent than watching it with ⎕ED.'
           r,←⊂'The user command creates a namespace "AcreLog" within ⎕SE and then copies the workspace'
           r,←⊂'AcreLog" into it. That means you should avoide saving the session after executing ]AcreLog.'
-      :EndIf     
+      :EndIf
     ∇
 
-    ∇ {r}←LoadAcreLog path;filename;path;ws;failed
-      r←⍬
+    ∇ r←LoadAcreLog path;filename;path;ws;failed
+      r←''
       ws←'AcreLog.dws'
       path←{⍵↓⍨-⌊/'\/'⍳⍨⌽⍵}path
       filename←path,'/',ws
@@ -53,8 +55,13 @@
               ⎕SE.AcreLog.⎕CY ws       ⍝ Make use of Dyalog workspace search path
               failed←0
           :EndTrap
-          (failed/6)⎕SIGNAL⍨'Cannot find ',ws,' in ',path
+          r←failed/'Cannot find ',ws,' in ',path
       :EndTrap
     ∇
+    
+    CheckForProperVersionOfDyalog←{
+     17≤{⊃(//)⎕VFI ⍵/⍨2>+\⍵='.'}⍵:''
+     'Needs at least version 17.0 of Dyalog'
+ }
 
 :EndClass ⍝ AcreLog
