@@ -1,7 +1,7 @@
  OnClose←{
      _←⎕EX'⎕SE.acre.RefToLogGUI'
      ref←⎕IO⊃,⍵
-     _←{0::⍬ ⋄ ⍵.Timer.Close}ref
+     _←{0::⍬ ⋄ ⍬⊣⍵.Timer.Close}ref
      ⎕THIS.∆Posn←ref.Posn
      ⎕THIS.∆Size←ref.Size
      ref.∆Closed←1
