@@ -8,5 +8,5 @@
  ref.ref←ref
  ⎕SE.acre.RefToLogGUI←ref
  ((CR=html)/html)←NL
- ref.HTML←html
+ ref.HTML←⎕UCS'UTF-8'⎕UCS html
  ⍝Done
