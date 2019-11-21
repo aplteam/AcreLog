@@ -1,0 +1,21 @@
+ R←Test_Misc_001(stopFlag batchFlag);⎕TRAP;ref;noOfRecords;counter;success
+⍝ Model for a test function.
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ ref←##.AcreLog.Run ⍬
+ noOfRecords←≢ref.∆Log
+ {}⎕SE.acre.Projects''
+ success←counter←0
+ :Repeat
+     :If noOfRecords<≢ref.∆Log
+         success←1
+     :Else
+         ⎕DL 0.25
+     :EndIf
+ :Until success∨10<counter←counter+1
+ :If success
+     R←T._OK
+ :EndIf
+ ⎕NQ ref'Close'
+⍝Done

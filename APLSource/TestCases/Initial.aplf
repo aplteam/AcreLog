@@ -1,0 +1,7 @@
+ Initial
+ :If 0=⎕NC'T'
+     T←⎕NEW ##.Tester2 ⎕THIS
+     ∆Instanciated←1
+ :Else
+     ∆Instanciated←0
+ :EndIf

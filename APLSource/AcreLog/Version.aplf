@@ -1,3 +1,3 @@
  r←Version
  ⍝ See also `History`
- r←'AcreLog' '0.1.1.14' '2019-11-20'
+ r←'AcreLog' '1.0.0.14' '2019-11-21'

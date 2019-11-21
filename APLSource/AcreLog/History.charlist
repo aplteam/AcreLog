@@ -1,2 +1,2 @@
-* 0.1.0
-  * Bug fix: HTML property rewuires UTF8, otherwise it will crash when something beyond ANSI comes along.
+* 1.0.0
+  First release

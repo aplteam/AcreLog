@@ -1,0 +1,5 @@
+ Cleanup
+ :If ∆Instanciated
+     ⎕EX'T'
+ :EndIf
+ ⎕EX'∆Instanciated'
