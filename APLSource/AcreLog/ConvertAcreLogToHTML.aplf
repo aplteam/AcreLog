@@ -3,6 +3,7 @@
  html←''
  html,←⊂'<!DOCTYPE html>'
  html,←⊂'<html>'
+ html,←⊂'<meta charset="utf-8">'
  html,←⊂'<head>'
  html,←GetCSS
  html,←⊂'<title>Acre''s log',({'CLEAR WS'≡⍵:'' ⋄ ' in ',⍵}⎕WSID),' (',(⍕##.OS.GetPID),')</title>'

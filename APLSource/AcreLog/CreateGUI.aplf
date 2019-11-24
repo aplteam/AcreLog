@@ -1,12 +1,15 @@
- ref←CreateGUI html
+ n←CreateGUI html
+ n←⎕NS''
  :If 0=⎕NC'∆Posn'
-     ref←#.⎕NEW⊂'HTMLRenderer'
+     n.TheForm←⎕SE.⎕NEW'Form'('Coord' 'Prop')
  :Else
-     ref←#.⎕NEW'HTMLRenderer'(('Posn'∆Posn)('Size'∆Size))
+     n.TheForm←⎕SE.⎕NEW'Form'(('Posn'∆Posn)('Size'∆Size)('Coord' 'Prop'))
  :EndIf
- ref.∆Closed←0
- ref.ref←ref
- ⎕SE.acre.RefToLogGUI←ref
+ n.Browser←n.TheForm.⎕NEW'HTMLRenderer'(('Posn'(0 0))('Size'(100 100))('AsChild' 1))
+ n.Browser.HTML
+
+ n.∆Closed←0
+ ⎕SE.acre.RefToLogGUI←n.TheForm
  ((CR=html)/html)←NL
- ref.HTML←⎕UCS'UTF-8'⎕UCS html
+ n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
  ⍝Done
