@@ -8,4 +8,4 @@ acre uses an ordinary editor window in order to put its log on display. That can
 
 `]AcreLog` uses HTMLRenderer and therefore requires at least version 17.0 of Dyalog APL.
 
-![AcreLog's GUI](gui.png{style="height:90%; width:90%;"})
+![AcreLog's GUI](gui.png)
