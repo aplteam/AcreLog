@@ -9,7 +9,6 @@
      log←⎕SE.acre._code.MP.log
      html←ConvertAcreLogToHTML↑log
      ref←CreateGUI html
-     ref.onClose←'OnClose'
      ref.∆Log←log
      CreateTimer ref
  :EndIf

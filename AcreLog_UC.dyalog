@@ -2,6 +2,7 @@
 ⍝ User Command script for "AcreLog".
 ⍝ Expects the WS AcreLog.dws to be a sibling of this script.
 ⍝
+⍝ 0.2.0  2019-11-24 kai   -fl added
 ⍝ 0.1.0  2019-10-03 kai   First version
 
     ⎕IO←⎕ML←1
@@ -11,16 +12,18 @@
       r←⎕NS''
       r.Group←'TOOLS'
       r.Name←'AcreLog'
-      r.Parse←''
+      r.Parse←'-fl'
       r.Desc←'Monitors the acre "log" variable with a GUI'
     ∇
 
-    ∇ r←Run(Cmd Args);bool;calledFrom
+    ∇ r←Run(Cmd Args);bool;calledFrom;forceLoadFlag
       :Access Shared Public
       :If 0<≢r←CheckForProperVersionOfDyalog 2⊃# ⎕WG'APLVersion'
           :Return
       :EndIf
-      :If 0=⎕SE.⎕NC'AcreLog'
+      forceLoadFlag←Args.Switch'fl'
+      :If forceLoadFlag
+      :OrIf 0=⎕SE.⎕NC'AcreLog'
           'AcreLog'⎕SE.⎕NS''
           :If 0<≢r←LoadAcreLog ##.SourceFile
               ⎕SE.⎕EX'AcreLog'
@@ -39,7 +42,8 @@
           r,←⊂'Allows you to put acre''s "log" variable on display with a GUI (HTMLRenderer object).'
           r,←⊂'Depending on your work flow you might find this more convinent than watching it with ⎕ED.'
           r,←⊂'The user command creates a namespace "AcreLog" within ⎕SE and then copies the workspace'
-          r,←⊂'AcreLog" into it. That means you should avoide saving the session after executing ]AcreLog.'
+          r,←⊂'AcreLog" into it. That means you should avoid saving the session after executing ]AcreLog.'
+          r,←⊂'You can enforce a re-load by specifying the -fl (force load) flag.'
       :EndIf
     ∇
 

@@ -1,15 +1,15 @@
  n←CreateGUI html
  n←⎕NS''
  :If 0=⎕NC'∆Posn'
-     n.TheForm←⎕SE.⎕NEW'Form'('Coord' 'Prop')
+     n.TheForm←⎕NEW'Form'(('Coord' 'Prop')('Caption' 'Acre Log'))
  :Else
-     n.TheForm←⎕SE.⎕NEW'Form'(('Posn'∆Posn)('Size'∆Size)('Coord' 'Prop'))
+     n.TheForm←⎕NEW'Form'((('Posn'∆Posn)('Size'∆Size)('Coord' 'Prop')('Caption' 'Acre Log')))
  :EndIf
+ n.TheForm.⎕WX←3
  n.Browser←n.TheForm.⎕NEW'HTMLRenderer'(('Posn'(0 0))('Size'(100 100))('AsChild' 1))
- n.Browser.HTML
-
  n.∆Closed←0
  ⎕SE.acre.RefToLogGUI←n.TheForm
  ((CR=html)/html)←NL
  n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
+ n.TheForm.onClose←'OnClose'
  ⍝Done

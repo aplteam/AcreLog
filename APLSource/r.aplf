@@ -1,2 +1,2 @@
- r
- AcreLog.Run ⍬
+ {z}←r
+ z←AcreLog.Run ⍬
