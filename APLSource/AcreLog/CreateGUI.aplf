@@ -1,9 +1,10 @@
- n←CreateGUI html
+ n←CreateGUI html;caption
  n←⎕NS''
+ caption←((⍕##.WinSys.GetProcessID),' Acre Log for ',⎕WSID)
  :If 0=⎕NC'∆Posn'
-     n.TheForm←⎕NEW'Form'(('Coord' 'Prop')('Caption' 'Acre Log'))
+     n.TheForm←⎕NEW'Form'(('Coord' 'Prop')('Caption'caption))
  :Else
-     n.TheForm←⎕NEW'Form'((('Posn'∆Posn)('Size'∆Size)('Coord' 'Prop')('Caption' 'Acre Log')))
+     n.TheForm←⎕NEW'Form'((('Posn'∆Posn)('Size'∆Size)('Coord' 'Prop')('Caption'caption)))
  :EndIf
  n.TheForm.⎕WX←3
  n.Browser←n.TheForm.⎕NEW'HTMLRenderer'(('Posn'(0 0))('Size'(100 100))('AsChild' 1))
