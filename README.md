@@ -1,6 +1,8 @@
 # AcreLog
 
-This user command puts acre's log file onto a GUI. 
+## Overview
+
+This user command puts acre's log file onto a GUI. It's Windows only and needs at least version 17.0 of Dyalog APL.
 
 If you don't use [acre](https://github.com/the-carlisle-group/Acre-Desktop "acre on GitHub") there is no point in having this user command.
 
@@ -10,13 +12,20 @@ acre uses an ordinary editor window in order to put its log on display. That can
 
 ![AcreLog's GUI](gui.png)
 
-Notes:
 
-* AcreLog saves the position and size of the window in the Windows Registry, therefore after a restart the window appears on the same spot with the same size it had when it was closed.
+## Installation 
+
+Drop the workspace as well as the user command script into `%userprofile%\Documents\MyUCMDs` and it will be recognized by all versions of Dyalog APL installed on your machine.
+
+## Notes
+
+* When called for the first time AcreLog saves the position and size of the window in the Windows Registry, therefore after a restart the window appears on the same spot with the same size it had when it was closed. 
+
+  When you then move it elsewhere and subsequently close it it will ask you whether you want to save the new Posn/Size or not.
 
 * For updating the GUI a trigger function (rather than a timer) is used in order to avoid getting into the programmer's way when she is tracing code.
 
-* acre restricts the number of entries to a maximum of thousand entries, therefore that's the maximum of lines displayed by AcreLog.
+* acre restricts the number of entries to a maximum of thousand, therefore that's the maximum of lines displayed by AcreLog.
 
 * The WSID displayed in the status bar will be updated once a new log entry arrives.
 
