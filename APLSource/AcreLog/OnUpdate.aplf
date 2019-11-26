@@ -1,0 +1,10 @@
+ OnUpdate←{
+     (ref log)←⍵[1 3]
+     html←ConvertAcreLogToHTML log
+     ref.n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
+     n.∆Log←log
+     n.Info.Text←⎕WSID
+     n.TheForm.OnTop←1
+     n.TheForm.OnTop←0
+     0
+ }

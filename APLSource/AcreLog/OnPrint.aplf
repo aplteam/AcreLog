@@ -1,0 +1,7 @@
+ OnPrint←{
+     ref←1⊃,⍵
+     n←GetRef2n ref
+     _←'ff'⎕WC'MsgBox'('Caption' 'Acre Log: Print')('Text' 'I am sorry but this feature is not implemented yet')('Style' 'Msg')
+     _←⎕DQ ff
+     0
+ }

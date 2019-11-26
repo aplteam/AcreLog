@@ -1,15 +1,13 @@
- {ref}←Run args;html;ref;log
+ {ref}←Run args;log
 ⍝ Main function. Creates the GUI, populates it and starts a Timer watching out for changes once in a second.\\
-⍝ Returns a ref pointing to the HTMLRenderer object used to display the acre log.\\
+⍝ Returns a n pointing to the HTMLRenderer object used to display the acre log.\\
 ⍝ Signals an error in case acre is not to be found in ⎕SE.
  CheckForProperVersionOfDyalog 2⊃'#'⎕WG'APLVersion'
  :If 0=⎕SE.⎕NC'acre'
      'There is no acre in ⎕SE'⎕SIGNAL 6
  :Else
      log←⎕SE.acre._code.MP.log
-     html←ConvertAcreLogToHTML↑log
-     ref←CreateGUI html
-     ref.∆Log←log
-     CreateTimer ref
+     n←CreateGUI log
+     ref←n
  :EndIf
 ⍝Done

@@ -1,0 +1,26 @@
+ r←OnSelectMenuItem msg;n;ref;html;newSize;type;allSizes;new;ind
+ ref←⊃,msg
+ n←GetRef2n ref
+ html←n.Browser.HTML
+ type←⊃'font-size: *([^;]*);'⎕S'\1'⊣html
+ allSizes←'xx-large' 'x-large' 'large' 'medium' 'small' 'x-small' 'xx-small'
+ :If ref=n.IncreaseFontSize
+     ind←(⌽allSizes){1+⍺⍳⊂⍵}type
+     n.DecreaseFontSize.Active←1
+     n.IncreaseFontSize.Active←ind≠≢allSizes
+     n.RestoreFontSize.Active←1
+     new←ind⊃⌽allSizes
+ :ElseIf ref=n.DecreaseFontSize
+     ind←allSizes{1+⍺⍳⊂⍵}type
+     n.IncreaseFontSize.Active←1
+     n.DecreaseFontSize.Active←ind≠≢allSizes
+     n.RestoreFontSize.Active←1
+     new←ind⊃allSizes
+ :ElseIf ref=n.RestoreFontSize
+     new←'medium'
+     n.(IncreaseFontSize DecreaseFontSize).Active←1
+     n.RestoreFontSize.Active←0
+ :EndIf
+ html←'font-size: *([^;]*);'⎕R('font-size: ',new,';')⊣html
+ n.Browser.HTML←html
+⍝Done

@@ -1,5 +1,8 @@
- html←ConvertAcreLogToHTML log;fns
- log←(⍪'.',⍨¨3 0∘⍕¨⌽⍳≢log),(⍪↓log[;⍳10]),(⍪↓log[;11+⍳8]),(⍪{⍵↓⍨-+/∧\' '=⌽⍵}¨↓20↓[2]log)
+ html←ConvertAcreLogToHTML log;fns;buff
+ buff←⊂10↑¨log
+ buff,←⊂8↑¨11↓¨log
+ buff,←⊂{⍵↓⍨-+/∧\' '=⌽⍵}¨20↓¨log
+ buff←↓⍉↑buff
  html←''
  html,←⊂'<!DOCTYPE html>'
  html,←⊂'<html>'
@@ -11,7 +14,8 @@
  html,←⊂'<body>'
  html,←⊂'<table>'
  html,←⊂'<tbody>'
- html,←{TB,'<tr>',CR,TB,TB,('<td class="alignright">',(1⊃⍵),'</td>'),CR,TB,TB,('<td>',(2⊃⍵),'</td>'),CR,TB,TB,('<td>',(3⊃⍵),'</td>'),CR,TB,TB,('<td>',(4⊃⍵),'</td>'),CR,TB,'</tr>'}¨↓log
+ fns←{TB,'<tr>',CR,TB,TB,('<td>',(1⊃⍵),'</td>'),CR,TB,TB,('<td>',(2⊃⍵),'</td>'),CR,TB,TB,('<td>',(3⊃⍵),'</td>'),CR,TB,'</tr>'}
+ html,←fns¨buff
  html,←⊂'</tbody>'
  html,←⊂'</table>'
  html,←⊂'</body>'

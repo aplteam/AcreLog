@@ -1,0 +1,4 @@
+* Ideas:
+  * CSS for printing
+  * Keyboard shortcuts for the menu commands (doesn't work at the time of writing 2019-11-25)
+  * Replace the Timer by a variable watcher (acre's log variable) or (better still) subscribe to an event send to acre.

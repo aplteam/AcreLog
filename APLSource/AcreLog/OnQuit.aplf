@@ -1,0 +1,6 @@
+ OnQuit←{
+     0::shy←⍬
+     n←GetRef2n 1⊃,⍵
+     _←2 ⎕NQ n.TheForm'Close'
+     1:shy←⍬
+ }

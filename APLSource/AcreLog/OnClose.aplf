@@ -2,8 +2,10 @@
      _←⎕EX'⎕SE.acre.RefToLogGUI'
      ref←⎕IO⊃,⍵
      _←{0::⍬ ⋄ ⍬⊣⍵.Timer.Close}ref
-     ⎕THIS.∆Posn←ref.Posn
-     ⎕THIS.∆Size←ref.Size
+     posn←ref.Posn
+     posn[1]-←##.WinSys.GetSystemMetrics 15  ⍝ Dyalog bug: Form grows by the size of the menubar with every call without this
+     _←##.WinRegSimple.Write(RegKey,'\posn')(⍕posn)
+     _←##.WinRegSimple.Write(RegKey,'\size')(⍕ref.Size)
      ref.∆Closed←1
      1
  }

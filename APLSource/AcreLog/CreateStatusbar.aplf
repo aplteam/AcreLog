@@ -1,0 +1,3 @@
+ n←CreateStatusbar n
+ n.SB←n.TheForm.⎕NEW'Statusbar'(('Coord' 'Prop')('Attach'('Bottom' 'Left' 'Bottom' 'Right')))
+ n.Info←n.SB.⎕NEW'StatusField'(('Text'⎕WSID)('Size'(⍬ 99))('Attach'('Top' 'Left' 'Bottom' 'Right')))

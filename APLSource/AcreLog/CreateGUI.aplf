@@ -1,16 +1,31 @@
- n←CreateGUI html;caption
+ n←CreateGUI log;html;caption;posn;size
+⍝ Create and populate the GUI
+ html←ConvertAcreLogToHTML log
  n←⎕NS''
- caption←((⍕##.WinSys.GetProcessID),' Acre Log for ',⎕WSID)
- :If 0=⎕NC'∆Posn'
-     n.TheForm←⎕NEW'Form'(('Coord' 'Prop')('Caption'caption))
+ caption←((⍕##.WinSys.GetProcessID),' Acre Log')
+ :If ##.WinRegSimple.Exists RegKey,'\posn'
+     posn←⊃(//)⎕VFI ##.WinRegSimple.Read RegKey,'\posn'
+     size←⊃(//)⎕VFI ##.WinRegSimple.Read RegKey,'\size'
+     n.TheForm←⎕NEW'Form'((('Posn'posn)('Size'size)('Coord' 'Pixel')('Caption'caption)))
  :Else
-     n.TheForm←⎕NEW'Form'((('Posn'∆Posn)('Size'∆Size)('Coord' 'Prop')('Caption'caption)))
+     n.TheForm←⎕NEW'Form'(('Coord' 'Pixel')('Caption'caption)('Posn'(40 15))('Size'(700 1000)))
  :EndIf
  n.TheForm.⎕WX←3
- n.Browser←n.TheForm.⎕NEW'HTMLRenderer'(('Posn'(0 0))('Size'(100 100))('AsChild' 1))
+ n.TheForm.Coord←'Prop'
+ n←CreateMenubar n
+ n←CreateStatusbar n
+ n.Browser←n.TheForm.⎕NEW'HTMLRenderer'(('Posn'(0 0))('Size'(100 100))('AsChild' 1)('Attach'('Top' 'Left' 'Bottom' 'Right')))
+ n.(Browser SB).Coord←⊂'Pixel'
+ n.Browser.Size[1]-←1+n.SB.Size[1]
+ n.TheForm.Coord←'Pixel'
  n.∆Closed←0
+ n.TheForm.onClose←'OnClose'
+ n.TheForm.on9999←'OnUpdate'
+ n.TheForm.n←n
  ⎕SE.acre.RefToLogGUI←n.TheForm
  ((CR=html)/html)←NL
  n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
- n.TheForm.onClose←'OnClose'
+ n.∆Log←log
+ CreateTrigger ⍬
+ n.∆WSID←⎕WSID
  ⍝Done

@@ -1,2 +1,9 @@
+* 1.1.0 - 2019-11-25
+  * Menu commands added for increasing/decreasing/restoring the font size.
+  * Additional information is provided in the status bar.
+  * Meaningless running number removed.
+  * Posn and Size of the GUI is now saved and restored via the Windows Registry.
+  * The AcreLog GUI is now brought to the front once a new entry arrives.
+  * Couple of minor fixes.
 * 1.0.0 - 2019-11-24
   First release
