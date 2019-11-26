@@ -1,0 +1,16 @@
+ {r}←HandlePosnAndSize n;posn;firstflag;differFlag
+⍝ Saves "Posn" and "Size" of the GUI in the Windows Registry in case it had not been saved before or if
+⍝ the saved values are different from the current ones AND the user confirms.
+ r←⍬
+ posn←n.TheForm.Posn
+ posn[1]-←##.WinSys.GetSystemMetrics 15  ⍝ Dyalog bug: Form grows by the size of the menubar with every call without this
+ :If ~firstflag←~##.WinRegSimple.Exists RegKey,'\posn'
+     differFlag←posn≢⊃(//)⎕VFI ##.WinRegSimple.Read RegKey,'\posn'
+ :Else
+     differFlag←0
+ :EndIf
+ :If firstflag
+ :OrIf {YesOrNo'Do you want to save'}⍣differFlag⊣0  ⍝ Ask user
+     ##.WinRegSimple.Write(RegKey,'\posn')(⍕posn)
+     ##.WinRegSimple.Write(RegKey,'\size')(⍕ref.Size)
+ :EndIf

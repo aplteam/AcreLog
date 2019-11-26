@@ -1,0 +1,7 @@
+ Reset
+⍝ This needs to run before the project is closed in case the GUI is on display
+ :If 9.1=⎕NC⊂,'n'
+     :Trap 6
+         1 ⎕NQ n.TheForm'Close'
+     :EndTrap
+ :EndIf
