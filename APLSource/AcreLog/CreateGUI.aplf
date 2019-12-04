@@ -20,12 +20,12 @@
  n.TheForm.Coord←'Pixel'
  n.∆Closed←0
  n.TheForm.onClose←'OnClose'
- n.TheForm.on9999←'OnUpdate'
+ n.TheForm.on9999←'OnUpdate&'
  n.TheForm.n←n
  ⎕SE.acre.RefToLogGUI←n.TheForm
  ((CR=html)/html)←NL
  n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
- n.∆Log←log
+ n.∆NoOfLogRecords←≢log
  CreateTrigger ⍬
  n.∆WSID←⎕WSID
  ⍝Done
