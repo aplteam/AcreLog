@@ -25,7 +25,5 @@
  ⎕SE.acre.RefToLogGUI←n.TheForm
  ((CR=html)/html)←NL
  n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
- n.∆NoOfLogRecords←≢log
- CreateTrigger ⍬
  n.∆WSID←⎕WSID
  ⍝Done

@@ -1,0 +1,5 @@
+ SendChangeEvent;name
+⍝ Send an event 9999 to the AcreLog main form.
+ name←({⍵↓⍨-≢##.APLTreeUtils.Last ⍵}1⊃⎕XSI),'n.TheForm'   ⍝ Has to work from both # (project is opened!) and ⎕SE (runtime)!
+ ⎕NQ name 9999
+⍝Done

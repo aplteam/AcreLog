@@ -1,9 +1,0 @@
- {r}←CreateTrigger dummy;body;name
-⍝ Create a trigger that sends an event 9999 to AcreLog's main Form whenever acre's log variable changes.
- r←⍬
- body←'WatchAcreLog arg;html;⎕IO;⎕ML' ':Implements Trigger log' '⎕IO←1 ⋄ ⎕ML←1' ':Trap 6'
- name←({⍵↓⍨-≢##.APLTreeUtils.Last ⍵}1⊃⎕XSI),'n.TheForm'   ⍝ Has to work frorm both # (project is opened!) and ⎕SE (runtime)!
- body,←⊂'⎕NQ ',name,' 9999 arg.NewValue'
- body,←⊂':EndTrap'
- ⎕SE.acre._code.MP.⎕FX body
-⍝Done

@@ -1,4 +1,4 @@
- {ref}←Run args;log
+ {ref}←Run args
 ⍝ Main function. Creates the GUI, populates it and starts a Timer watching out for changes once in a second.\\
 ⍝ Returns a n pointing to the HTMLRenderer object used to display the acre log.\\
 ⍝ Signals an error in case acre is not to be found in ⎕SE.
@@ -6,8 +6,8 @@
  :If 0=⎕SE.⎕NC'acre'
      'There is no acre in ⎕SE'⎕SIGNAL 6
  :Else
-     log←⎕SE.acre._code.MP.log
-     n←CreateGUI log
+     ⎕SE.acre._code.SV.loghaschanged←(⍕⎕THIS),'.SendChangeEvent'
+     n←CreateGUI ⎕SE.acre._code.MP.log
      ref←n
  :EndIf
 ⍝Done

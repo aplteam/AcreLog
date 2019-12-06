@@ -8,13 +8,9 @@
  n.Quit.onSelect←'OnQuit'
  n.MenuEdit←n.MB.⎕NEW'Menu'(⊂'Caption' '&Edit')
 
-⍝ Keybaord shortcuts do not work, presumably because the Form is not ⎕DQed?!
-⍝n.IncreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Increase font size',TAB,'F7'))('Active' 1)('Accelerator'(118 0)))
-⍝n.DecreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Decrease font size',TAB,'F5'))('Active' 1)('Accelerator'(116 0)))
-⍝n.RestoreFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Restore default font size',TAB,'F6'))('Active' 0)('Accelerator'(117 0)))
+ n.IncreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Increase font size',TAB,'F7'))('Active' 1)('Accelerator'(118 0)))
+ n.DecreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Decrease font size',TAB,'F5'))('Active' 1)('Accelerator'(116 0)))
+ n.RestoreFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Restore default font size',TAB,'F6'))('Active' 0)('Accelerator'(117 0)))
 
- n.IncreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Increase font size'))('Active' 1))
- n.DecreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Decrease font size'))('Active' 1))
- n.RestoreFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Restore default font size'))('Active' 0))
  {⍵.onSelect←'OnSelectMenuItem'}¨⎕WN n.MenuEdit
 ⍝Done

@@ -4,11 +4,11 @@
  R←T._Failed
 
  ref←##.AcreLog.Run ⍬
- noOfRecords←ref.∆NoOfLogRecords
+ noOfRecords←≢⎕SE.acre._code.MP.log
  {}⎕SE.acre.Projects''
  success←counter←0
  :Repeat
-     :If noOfRecords<≢ref.∆NoOfLogRecords
+     :If noOfRecords<≢⎕SE.acre._code.MP.log
          success←1
      :Else
          ⎕DL 0.25
@@ -17,5 +17,4 @@
  :If success
      R←T._OK
  :EndIf
- ⎕NQ ref'Close'
 ⍝Done
