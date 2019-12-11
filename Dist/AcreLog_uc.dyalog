@@ -2,18 +2,21 @@
 ⍝ User Command script for "AcreLog".
 ⍝ Expects the WS AcreLog.dws to be a sibling of this script.
 ⍝
-⍝ 0.2.0  2019-11-24 kai   -fl added
-⍝ 0.1.0  2019-10-03 kai   First version
+⍝ 1.0.0  2019-12-11 kai  The `List` function now investigates the version of APL
 
     ⎕IO←⎕ML←1
 
     ∇ r←List
       :Access Shared Public
       r←⎕NS''
-      r.Group←'TOOLS'
-      r.Name←'AcreLog'
-      r.Parse←'-fl'
-      r.Desc←'Monitors the acre "log" variable with a GUI'
+	  :If 17≤{⊃⊃(//)⎕vfi ⍵/⍨2>+\'.'=⍵}(⎕IO+1)⊃# ⎕wg 'APLVersion'  ⍝ We need at least 17.0 because of the HTMLRenderer
+		  r.Group←'TOOLS'
+		  r.Name←'AcreLog'	
+		  r.Parse←'-fl'
+		  r.Desc←'Monitors the acre "log" variable with a GUI'
+	  :Else
+		  r←''
+	  :EndIf
     ∇
 
     ∇ r←Run(Cmd Args);bool;calledFrom;forceLoadFlag
