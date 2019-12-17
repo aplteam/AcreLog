@@ -1,8 +1,8 @@
  OnClose←{
-     _←⎕EX'⎕SE.acre.RefToLogGUI'
      ref←⎕IO⊃,⍵
-     _←{0::⍬ ⋄ ⍬⊣⍵.Timer.Close}ref
-     _←HandlePosnAndSize n
      ref.∆Closed←1
+     ⎕SE.acre._code.SV.loghaschanged←''
+     _←⎕EX'⎕SE.acre.RefToLogGUI'
+     _←HandlePosnAndSize n
      1
  }

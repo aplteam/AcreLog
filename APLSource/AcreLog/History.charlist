@@ -1,5 +1,8 @@
-* 1.4.0 - 2019-12-11          
+* 1.5.0 - 2019-12-18
+  * Menu "Help" with menu item "About" added as a means to get the version number
+  * Bug fixes
+    * Closing AcreLog's GUI did not unregister the handler, causing a VALUE ERROR
+      as soon as any acre command was issued.
+* 1.4.0 - 2019-12-11
   * The user command does not show any more in versions of Dyalog that do not meet the
     minimum requirement which is 17.0 or better.
-* 1.3.0 - 2019-12-06          
-  * Now acre has a hook for this (watching the log) which allows more better integration.

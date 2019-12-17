@@ -1,5 +1,5 @@
  R←Test_Misc_001(stopFlag batchFlag);⎕TRAP;ref;noOfRecords;counter;success
-⍝ Model for a test function.
+⍝ Basic test
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←T._Failed
 
@@ -14,6 +14,7 @@
          ⎕DL 0.25
      :EndIf
  :Until success∨10<counter←counter+1
+ 1 ⎕NQ ref.TheForm'Close'
  :If success
      R←T._OK
  :EndIf

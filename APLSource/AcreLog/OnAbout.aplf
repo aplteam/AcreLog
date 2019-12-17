@@ -1,0 +1,8 @@
+ OnAbout←{
+     ref←⊃,⍵
+     n←GetRef2n ref
+     mb←⎕NEW'MsgBox'(('Caption' 'AcreLog')('Style' 'Info'))
+     mb.Text←'The user command ]AcreLog was written by Kai Jaeger' ''('Version ',(2⊃Version),' from ',(3⊃Version))
+     _←⎕DQ mb
+     0
+ }

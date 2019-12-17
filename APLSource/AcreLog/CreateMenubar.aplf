@@ -6,11 +6,14 @@
 ⍝ n.MenuFile.⎕NEW⊂'Separator'                                                                               ⍝ ... yet!
  n.Quit←n.MenuFile.⎕NEW'MenuItem'(('Caption'('Quit',TAB,'Alt+F4'))('Accelerator'(115 4)))
  n.Quit.onSelect←'OnQuit'
- n.MenuEdit←n.MB.⎕NEW'Menu'(⊂'Caption' '&Edit')
 
+ n.MenuEdit←n.MB.⎕NEW'Menu'(⊂'Caption' '&Edit')
  n.IncreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Increase font size',TAB,'F7'))('Active' 1)('Accelerator'(118 0)))
  n.DecreaseFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Decrease font size',TAB,'F5'))('Active' 1)('Accelerator'(116 0)))
  n.RestoreFontSize←n.MenuEdit.⎕NEW'MenuItem'(('Caption'('Restore default font size',TAB,'F6'))('Active' 0)('Accelerator'(117 0)))
-
  {⍵.onSelect←'OnSelectMenuItem'}¨⎕WN n.MenuEdit
+
+ n.MenuHelp←n.MB.⎕NEW'Menu'(⊂'Caption' '&Help')
+ n.About←n.MenuHelp.⎕NEW'MenuItem'(('Caption'('Abouit',TAB,'Shift+F1'))('Accelerator'(112 1)))
+ n.About.onSelect←'OnAbout'
 ⍝Done
