@@ -10,7 +10,7 @@
      differFlag←0
  :EndIf
  :If firstflag
- :OrIf {YesOrNo'Do you want to save'}⍣differFlag⊣0  ⍝ Ask user
+ :OrIf {YesOrNo'Do you want to save Posn and Size of the GUI?'}⍣differFlag⊣0  ⍝ Ask user
      ##.WinRegSimple.Write(RegKey,'\posn')(⍕posn)
      ##.WinRegSimple.Write(RegKey,'\size')(⍕ref.Size)
  :EndIf

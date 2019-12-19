@@ -1,5 +1,5 @@
  flag←YesOrNo question;answer
- 'ff'⎕WC'MsgBox'('Caption' 'AcreLog: Posn and Size')('Text'question)('Style' 'Query')('Event'('MsgBtn1' 'MsgBtn2')1)
+ 'ff'⎕WC'MsgBox'('Caption' 'AcreLog')('Text'question)('Style' 'Query')('Event'('MsgBtn1' 'MsgBtn2')1)
  answer←⎕DQ'ff'
  flag←'MsgBtn1'≡2⊃answer
 ⍝Done

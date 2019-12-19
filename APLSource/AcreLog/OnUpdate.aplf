@@ -5,8 +5,8 @@
      html←ConvertAcreLogToHTML ⎕SE.acre._code.MP.log
      ref.n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
      n.Info.Text←⎕WSID
-     n.TheForm.OnTop←1          ⍝ This forces the main form...
-     n.TheForm.OnTop←0          ⍝ ...to become visible without insisting on being On Top all the time
+     ⍝ ↓↓↓ Forces main form to become visible without insisting on being On Top all the time
+     n.TheForm.OnTop←1 ⋄ n.TheForm.OnTop←0
      _←⎕DL 1.25                 ⍝ Give it some time; useful when something like Fire changes a lerge number of objects
      ref.on9999←(⊃⎕XSI),'&'     ⍝ Re-establish the event handler
      1:shy←0

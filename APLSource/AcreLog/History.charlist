@@ -1,3 +1,8 @@
+* 1.?.? - 2019-??-??
+  * Bug fixes
+    * The question whether Posn and Size should be saved was mutilated.
+    * Sometimes the Form insisted on being "OnTop" of other applications. 
+      Tried to fix by putting the assignments on a single line.
 * 1.5.0 - 2019-12-18
   * Menu "Help" with menu item "About" added as a means to get the version number
   * Bug fixes
