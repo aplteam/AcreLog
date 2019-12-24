@@ -1,4 +1,4 @@
-* 1.?.? - 2019-??-??
+* 1.5.1 - 2019-12-24
   * Bug fixes
     * The question whether Posn and Size should be saved was mutilated.
     * Sometimes the Form insisted on being "OnTop" of other applications. 
