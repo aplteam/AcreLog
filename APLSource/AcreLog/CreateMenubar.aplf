@@ -14,6 +14,6 @@
  {⍵.onSelect←'OnSelectMenuItem'}¨⎕WN n.MenuEdit
 
  n.MenuHelp←n.MB.⎕NEW'Menu'(⊂'Caption' '&Help')
- n.About←n.MenuHelp.⎕NEW'MenuItem'(('Caption'('Abouit',TAB,'Shift+F1'))('Accelerator'(112 1)))
+ n.About←n.MenuHelp.⎕NEW'MenuItem'(('Caption'('About',TAB,'Shift+F1'))('Accelerator'(112 1)))
  n.About.onSelect←'OnAbout'
 ⍝Done

@@ -2,7 +2,7 @@
 ⍝ Create and populate the GUI
  html←ConvertAcreLogToHTML log
  n←⎕NS''
- caption←((⍕##.WinSys.GetProcessID),' Acre Log')
+ caption←((⍕##.OS.GetPID),' Acre Log')
  :If ##.WinRegSimple.Exists RegKey,'\posn'
      posn←⊃(//)⎕VFI ##.WinRegSimple.Read RegKey,'\posn'
      size←⊃(//)⎕VFI ##.WinRegSimple.Read RegKey,'\size'
@@ -24,6 +24,6 @@
  n.TheForm.n←n
  ⎕SE.acre.RefToLogGUI←n.TheForm
  ((CR=html)/html)←NL
- n.Browser.HTML←⎕UCS'UTF-8'⎕UCS html
+ n.Browser.HTML←html
  n.∆WSID←⎕WSID
  ⍝Done

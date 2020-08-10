@@ -1,3 +1,7 @@
+* 1.5.2 - 2020-08-10
+  * Bug fixes
+    * "About" in the menu was misspelled.
+    * Encoded was wrong due to the change to the HTMLRenderer expectations
 * 1.5.1 - 2019-12-24
   * Bug fixes
     * The question whether Posn and Size should be saved was mutilated.
